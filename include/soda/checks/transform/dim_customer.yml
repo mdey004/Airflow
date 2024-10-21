@@ -1,0 +1,11 @@
+checks for dim_customer:
+  - schema:
+      fail:
+        when required column missing: [customerid]
+        when wrong column type:
+          customerid: string                  
+          years_in_current_job: string 
+  - duplicate_count(customerid) = 0:
+      name: All customers are unique
+  - missing_count(customerid) = 0:
+      name: All customers have a key

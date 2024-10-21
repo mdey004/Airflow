@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: credit  # Your source name (can be anything)
+    database: airflowcrtn  # Replace with your BigQuery project ID
+    schema: credit  # BigQuery dataset or schema where your table is located
+    tables:
+      - name: raw_invoices

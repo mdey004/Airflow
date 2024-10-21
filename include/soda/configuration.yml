@@ -1,0 +1,14 @@
+data_source credit:
+  type: bigquery
+  connection:
+    account_info_json_path: /usr/local/airflow/include/gcp/service_account.json
+    auth_scopes:
+    - https://www.googleapis.com/auth/bigquery
+    - https://www.googleapis.com/auth/cloud-platform
+    - https://www.googleapis.com/auth/drive
+    project_id: 'airflowcrtn'
+    dataset: credit
+soda_cloud:
+   host: cloud.soda.io
+   api_key_id: 44dccc15-5f60-41c2-bc9c-35b848c0e2bc
+   api_key_secret: WupMvHI-4DMRO-GiERXHV8DIcoon5ndCtxfgB8y5sMSVVxQPqxUabA

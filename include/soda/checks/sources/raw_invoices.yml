@@ -1,0 +1,12 @@
+checks for raw_invoices:
+  - schema:
+      fail:
+        when required column missing: ['Loan ID', 'Customer ID']
+        when wrong column type:
+          Loan ID: string
+          Customer ID: string
+          Loan Status: string
+          Current Loan Amount: integer
+          Credit Score: float64
+          Annual Income: float64
+          

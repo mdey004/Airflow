@@ -1,0 +1,20 @@
+checks for fact_invoices:
+  # Check fails when LoanID,CustomerID, LoanStatusID, CurrentLoanAmount is missing or
+  # when the data type of those columns is other than specified
+  - schema:
+      fail:
+        when required column missing: 
+          [LoanID,CustomerID, LoanStatusID, CurrentLoanAmount]
+        when wrong column type:
+          LoanID: string
+          LoanStatusID: string
+          CurrentLoanAmount: int
+          CreditScore: float64
+  - duplicate_count(LoanID) = 0:
+      name: LoanID is unique        
+  # Check fails when NULL values in the column
+  - missing_count(LoanID) = 0:
+      name: All invoices have a key
+  # Range Check: Loan Amount should be positive
+  - min(CurrentLoanAmount):
+      fail: when < 0
